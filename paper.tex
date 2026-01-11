@@ -123,7 +123,7 @@ and Grover's Search~\cite{Grover@96}, to demonstrate the effectiveness and pract
 
 The rest of the paper is organized as follows.
 Section~\ref{sect-prel} introduces basic notations from quantum computation.
-Section~\ref{sect-as4qc} presents the algebraic specification of quantum computation.
+Section~\ref{sect-as4qc} presents the algebraic specification for quantum computation.
 %Section~\ref{sect-cs} describes the formal specification and verification of a case study in \texttt{|AS4QC>}.
 Section~\ref{sect-cs} describes a case study in \texttt{|AS4QC>}.
 Section~\ref{sect-exp} shows the experimental results for several case studies.
@@ -401,7 +401,7 @@ In this way, automated reasoning about quantum computation using Dirac's bra-ket
 
 \subsection{Usability of |AS4QC>}
 
-We present the usability of \texttt{|AS4QC>} to perform automated reasoning about quantum computation in Maude. In our algebraic specification, we define the sorts \texttt{Vect}, \texttt{CoVect}, and \texttt{Mat} to represent vectors, covectors, and matrices, which correspond to quantum states, bra representations of quantum states, and quantum operations, respectively. The scalar multiplication $\cdot$, addition $+$, multiplication $\times$, tensor product $\otimes$, and conjugate transpose $^\dagger$ are formalized in Maude as the operators \lstinline!_._!, \lstinline!_+_!, \lstinline!_x_!, \lstinline!_(x)_!, \lstinline!_^+!, respectively. The inner product $\braket{\_}$ and norm square $\|\_\|^2$ operations for vectors are formalized as the operators \lstinline!<_,_>! and \lstinline!||_||^2!, respectively. Recall the complex number representation in Section~\ref{cpx_sect}, we formalize it as the quadruple operator \lstinline!(_,_,_,_,_)!. Note that underscores denote operator parameters.
+We present the usability of \texttt{|AS4QC>} to perform automated reasoning about quantum computation in Maude. In our algebraic specification, we define the sorts \texttt{Vect}, \texttt{CoVect}, and \texttt{Mat} to represent vectors, covectors, and matrices, which correspond to quantum states, bra representations of quantum states, and quantum operations, respectively. The scalar multiplication $\cdot$, addition $+$, multiplication $\times$, tensor product $\otimes$, and conjugate transpose $^\dagger$ are formalized in Maude as the operators \lstinline!_._!, \lstinline!_+_!, \lstinline!_x_!, \lstinline!_(x)_!, \lstinline!_^+!, respectively. The inner product $\braket{\_}$ and norm square $\|\_\|^2$ operations for vectors are formalized as the operators \lstinline!<_,_>! and \lstinline!||_||^2!, respectively. Recall the complex number representation in Section~\ref{cpx_sect}, we formalize it as the operator \lstinline!(_,_,_,_,_)!. Note that underscores denote operator parameters.
 
 We support the following quantum operations in Maude for reasoning about quantum computation.
 
