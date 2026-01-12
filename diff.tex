@@ -1,4 +1,7 @@
 % This is samplepaper.tex, a sample chapter demonstrating the
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL rev/paper-r1.tex   Sun Jan 11 11:56:54 2026
+%DIF ADD paper.tex          Mon Jan 12 17:45:18 2026
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.21 of 2022/01/12
 %
@@ -71,6 +74,88 @@
 %\renewcommand\UrlFont{\color{blue}\rmfamily}
 %\urlstyle{rm}
 %
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 %
 \title{An Algebraic Specification for Quantum Computation in Maude\thanks{This work was supported by JSPS KAKENHI Grant Numbers JP23K28060, JP23K19959, JP24K20757, JP24KK0185.}}
@@ -110,7 +195,9 @@ To develop \texttt{|AS4QC>}, we need to support algebraic representations of com
 Kliuchnikov et al. conjectured in~\cite{Vadym@13}, and Giles and Selinger later proved in~\cite{Giles@13}, that a unitary matrix can be exactly realized by a quantum circuit over the universal Clifford + T gate set if and only if all its matrix entries belong to the ring $\mathbb{D}[\omega]$. Therefore, it is promising to study the ring $\mathbb{D}[\omega]$ and its use for the exact algebraic representation of complex numbers arising in quantum computation. Accordingly, we employ $\mathbb{D}[\omega]$ to algebraically represent complex numbers in quantum computation without approximation. 
 For the algebraic representation of quantum states and quantum operations, we adopt Dirac’s bra-ket notation~\cite{Dirac@93} instead of explicitly using complex vectors and matrices as in~\cite{QWIRE@17,QX@17,wecker2014,ProjectQ@18}. Dirac notation is widely used in quantum mechanics because of its succinctness and convenience, and it allows us to obtain compact representations that are well-suited to algebraic manipulation. For automated reasoning, we leverage a set of laws from quantum mechanics and basis matrix operations expressed in Dirac notation to perform quantum computation.
 
-Maude~\cite{Clavel2007LNCS} is a high-level specification and programming language based on rewriting logic~\cite{Meseguer@12}, focusing on simplicity, expressiveness, and performance, and providing a wide range of formal analysis facilities. Therefore, we use it to develop the algebraic specification \texttt{|AS4QC>} for quantum computation. The algebraic specification allows us to use symbolic values for complex numbers, thereby enabling symbolic quantum computation, which is a major advantage of our approach.
+Maude~\cite{Clavel2007LNCS} is a high-level specification and programming language based on rewriting logic\DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{Meseguer@12}}\hskip0pt%DIFAUXCMD
+}\DIFaddend , focusing on simplicity, expressiveness, and performance, and providing a wide range of formal analysis facilities. Therefore, we use it to develop the algebraic specification \texttt{|AS4QC>} for quantum computation. The algebraic specification allows us to use symbolic values for complex numbers, thereby enabling symbolic quantum computation, which is a major advantage of our approach.
 As case studies, we use \texttt{|AS4QC>} to verify the correctness of several non-trivial quantum programs, including 
 Entanglement,
 Quantum Teleportation~\cite{be93}, 
@@ -166,7 +253,7 @@ ${\rm CX} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0
 \end{tabular}
 \end{center}
 
-A quantum measurement on a quantum system in the Hilbert space $\mathcal{H}$ is a collection of measurement operators $\{ M_m \}$ satisfying the completeness relation $\sum\limits_{m} M^\dagger_m M_m = I$. Measuring a state $\ket{\psi}$ yields outcome $m$ with probability $p(m) = \| M_m \ket{\psi} \|^2$, and the state is changed to $\ket{\psi_m} = \frac{M_{m}\ket{\psi}}{\sqrt{p(m)}}$. Note that $M_m \ket{\psi}$ is normalized by dividing by its norm $\sqrt{p(m)} = || M_m \ket{\psi} ||$, so that it becomes a unit vector.
+A quantum measurement on a quantum system in the Hilbert space $\mathcal{H}$ is a collection of measurement operators $\{ M_m \}$ satisfying the completeness relation $\sum\limits_{m} M^\dagger_m M_m = I$. Measuring a state $\ket{\psi}$ yields outcome $m$ with probability $p(m) = \| M_m \ket{\psi} \|^2$, and the state is changed to $\ket{\psi_m} = \frac{M_{m}\ket{\psi}}{\sqrt{p(m)}}$\DIFdelbegin \DIFdel{nondeterministically}\DIFdelend . Note that $M_m \ket{\psi}$ is normalized by dividing by its norm $\sqrt{p(m)} = || M_m \ket{\psi} ||$, so that it becomes a unit vector.
 As an example, we consider the measurement $\{M_0 = \ketbra{0}, M_1 = \ketbra{1}\}$ applied to the state $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$ with $| \alpha |^2 + | \beta |^2 = 1$. The probabilities of obtaining outcomes $0$ and $1$ are $| \alpha |^2$ and $| \beta |^2$, respectively and the state collapses to $\ket{0}$ or $\ket{1}$ accordingly. Consequently, quantum measurement changes a quantum system in a nondeterministic and probabilistic way.
 
 The measurement involving multiple qubits is more complex. Let us consider a two-qubit system in a state $\ket{\psi} = \alpha \ket{00} + \beta \ket{01} + \gamma \ket{10} + \delta \ket{11}$ with $|\alpha|^2 + |\beta|^2 + |\gamma|^2 + |\delta|^2 = 1$.
@@ -197,13 +284,14 @@ Next, we measure the second qubit. The possible outcomes are illustrated in the 
 \]
 \noindent
 In this diagram, nodes represent quantum states, and transitions are labeled with the probabilities and measurement outcomes. The total probabilities of obtaining 00, 01, 10, and 11 as the result of the two measurements are $p_0 p_{
-00} = | \alpha |^2$, $p_0 p_{01} = | \beta |^2$, $p_1 p_{10} = | \gamma |^2$, and $p_1 p_{11} = | \delta |^2$. It is common to normalize quantum states to unit vectors after each measurement, ensuring that the sum of the absolute squares of the amplitudes is one. However, the diagram shows that a different normalization is more convenient. This paper adopts the normalization convention from~\cite{Selinger@04} such that each state is normalized so that the sum of the absolute squares of the amplitudes equals the total probability of reaching that state. It means that when measuring a state $\ket{\psi}$ with outcome $m$, the state changes to $\ket{\psi_m} = M_m \ket{\psi}$, which may not be a unit vector since normalization (division by its norm) is omitted. This convention significantly simplifies our representation and computation and has no effect on physical observations.
-%\begin{conv}[Normalization Convention]
+00} = | \alpha |^2$, $p_0 p_{01} = | \beta |^2$, $p_1 p_{10} = | \gamma |^2$, and $p_1 p_{11} = | \delta |^2$. It is common to normalize quantum states to unit vectors after each measurement, ensuring that the sum of the absolute squares of the amplitudes is \DIFdelbegin \DIFdel{1. }\DIFdelend \DIFaddbegin \DIFadd{one. }\DIFaddend However, the diagram shows that a different normalization is more convenient. \DIFdelbegin \DIFdel{In this paper , we adopt }\DIFdelend \DIFaddbegin \DIFadd{This paper adopts }\DIFaddend the normalization convention from~\cite{Selinger@04} such that each state is normalized so that the sum of the absolute squares of the amplitudes equals the total probability of reaching that state. \DIFaddbegin \DIFadd{It means that when measuring a state $\ket{\psi}$ with outcome $m$, the state changes to $\ket{\psi_m} = M_m \ket{\psi}$, which may not be a unit vector since normalization (division by its norm) is omitted. This convention significantly simplifies our representation and computation and has no effect on physical observations.
+}\DIFaddend %\begin{conv}[Normalization Convention]
 %\label{norm-con}
 %Each state is normalized so that the sum of the absolute squares of the amplitudes equals the total probability of reaching that state.
 %\end{conv}
 %\noindent
-%With this convention, normalizing the state after measurement is unnecessary, significantly simplifying our representation and computation. 
+\DIFdelbegin \DIFdel{With this convention, normalizing the state after measurement is unnecessary, significantly simplifying our representation and computation. 
+}\DIFdelend %DIF > With this convention, normalizing the state after measurement is unnecessary, significantly simplifying our representation and computation. 
 
 For each closed subspace $V$ of $\mathcal{H}$, there exists a unique projection operator $\mathcal{P}_V$. Every state $\ket{\psi} \in \mathcal{H}$ can be written as $\ket{\psi} = \ket{\psi_V} + \ket{\psi_{V^\bot}}$ with $\ket{\psi_V} \in V$ and $\ket{\psi_{V^\bot}} \in V^{\bot}$, the orthogonal complement of $V$. The projection $\mathcal{P}_V : \mathcal{H} \rightarrow V$ is defined by $\mathcal{P}_V\ket{\psi} = \ket{\psi_V}$. Since closed subspaces of $\mathcal{H}$ are in one-to-one correspondence with projection operators, we often identify $\mathcal{P}_V$ and $V$, and write $\mathcal{P}_V$ as $\mathcal{P}$ when the closed subspace $V$ is clear from context. Moreover, if a state $\ket{\psi}$ is in the closed subspace $V$ of the projection operator $\mathcal{P}_V$, then $\mathcal{P}_V\ket{\psi} = \ket{\psi}$.
 
@@ -215,11 +303,14 @@ This section presents the algebraic specification \texttt{|AS4QC>} for quantum c
 \subsection{Complex number representation}
 \label{cpx_sect}
 Quantum computation involves complex numbers. To simulate quantum computation without numerical approximation, it is therefore necessary to represent complex numbers algebraically. Kliuchnikov et al. conjectured in~\cite{Vadym@13}, and Giles and Selinger later proved in~\cite{Giles@13}, that a unitary matrix can be exactly realized by a quantum circuit over the universal Clifford + T gate set, possibly using one additional ancilla, if and only if its matrix entries belong to the ring $\mathbb{D}[\omega]$, consisting all complex numbers of the form
-$\frac{1}{{\sqrt{2}}^k}(a + b\omega + c\omega^2 + d\omega^3)$, where $k \in \mathbb{N}, a,b,c,d \in \mathbb{Z}$, and $\omega = e^{i\pi/4} = {\rm cos}(\pi/4) + i\ {\rm sin}(\pi/4) = (1 + i) / \sqrt{2}$. Using the ring $\mathbb{D}[\omega]$, a complex number is algebraically represented by a quadruple $(a, b, c, d)$ of integers and a normalization factor $k$ of a natural number. Although $\mathbb{D}[\omega]$ does not include all complex numbers, it forms a dense subset of complex numbers such that any complex number can be approximated to arbitrary precision by an element of the ring $\mathbb{D}[\omega]$~\cite{Zulehner@19}. Moreover, the subset of complex numbers is sufficient to describe various standard quantum gates. Our algebraic specification currently supports X, Y, Z, H, S, T, Rx[$\pi/2$], Ry[$\pi/2$], Rz[$\pi/2$], CX, CY, CZ, SWAP, CCX, CCY, CCZ, MCX, MCY, MCZ, MCSWAP, which already includes the universal Clifford + T gate set.
+$\frac{1}{{\sqrt{2}}^k}(a + b\omega + c\omega^2 + d\omega^3)$, where $k \in \mathbb{N}, a,b,c,d \in \mathbb{Z}$, and $\omega = e^{i\pi/4} = {\rm cos}(\pi/4) + i\ {\rm sin}(\pi/4) = (1 + i) / \sqrt{2}$. Using the ring $\mathbb{D}[\omega]$, a complex number is algebraically represented by a quadruple $(a, b, c, d)$ of integers and a normalization factor $k$ of a natural number. Although $\mathbb{D}[\omega]$ does not include all complex numbers, it forms a dense subset of complex numbers such that any complex number can be approximated to arbitrary precision by an element of the ring $\mathbb{D}[\omega]$~\cite{Zulehner@19}. Moreover, the subset of complex numbers is sufficient to describe various standard quantum gates. \DIFdelbegin \DIFdel{The algebraic specification }\texttt{\DIFdel{|AS4QC>}} %DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{Our algebraic specification }\DIFaddend currently supports X, Y, Z, H, S, T, Rx[$\pi/2$], Ry[$\pi/2$], Rz[$\pi/2$], CX, CY, CZ, SWAP, CCX, CCY, CCZ, MCX, MCY, MCZ, MCSWAP, which already includes the universal Clifford + T gate set.
 This algebraic representation of complex numbers is also sufficient to exactly represent all reachable states of OpenQASM~\footnote{OpenQASM (open quantum assembly language) is an imperative programming language for describing quantum circuits used by IBM.} circuits when the initial state is a basis state because complex numbers in the ring $\mathbb{D}[\omega]$ are closed under addition and multiplication.
 
-We employ the ring $\mathbb{D}[\omega]$ to algebraically represent complex numbers and also assume that all amplitudes of a quantum state share a common normalization factor $k$ as in~\cite{AutoQ@23,AutoQ@25}.  Rather than storing this factor for each amplitude, we store a single global value $k$ for the whole quantum state. The value of $k$ can be inferred from the fact that the sum of probabilities over all basis states is one. 
-Moreover, the initial quantum state is usually a basis state, $k$ is initialized to zero in most cases. For each application of an H, Rx[$\pi / 2$], Ry[$\pi / 2$], or Rz[$\pi / 2$] gate, the value of $k$ is incremented since these gates introduce a factor of $1/\sqrt{2}$. It is important to note that this factor is omitted in our representations for these quantum gates, which further simplifies their algebraic representations. After all operations have been applied, the final quantum state is normalized by multiplying it by $(1/\sqrt{2})^k$. Under this representation, each amplitude of a quantum state is represented as a quadruple $(a, b, c, d)$ of integers and a value $k$ is stored globally. 
+We employ the ring $\mathbb{D}[\omega]$ to algebraically represent complex numbers and also assume that all amplitudes of a quantum state share a common normalization factor $k$ \DIFaddbegin \DIFadd{as in~\mbox{%DIFAUXCMD
+\cite{AutoQ@23,AutoQ@25}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .  Rather than storing this factor for each amplitude, we store a single global value $k$ for the whole quantum state. The value of $k$ can be inferred from the fact that the sum of probabilities over all basis states is one. 
+Moreover, the initial quantum state is usually a basis state, $k$ is initialized to zero in most cases. For each application of an H, Rx[$\pi / 2$], Ry[$\pi / 2$], or Rz[$\pi / 2$] gate, the value of $k$ is \DIFdelbegin \DIFdel{increamented }\DIFdelend \DIFaddbegin \DIFadd{incremented }\DIFaddend since these gates introduce a factor of $1/\sqrt{2}$. It is important to note that this factor is omitted in our representations for these quantum gates, which further simplifies their algebraic representations. After all operations have been applied, the final quantum state is normalized by multiplying it by $(1/\sqrt{2})^k$. Under this representation, each amplitude of a quantum state is represented as a quadruple $(a, b, c, d)$ of integers and a value $k$ is stored globally. 
 Arithmetic operations on complex numbers in this quadruple form, such as addition and multiplication, are therefore significantly simplified.
 
 We have the following lemma to distinguish between zero and nonzero complex numbers in our algebraic specification.
@@ -256,7 +347,7 @@ op _^* : NzCpx -> NzCpx [prec 29] .
 \end{small}
 
 \noindent
-where \texttt{ZeroCpx}, \texttt{NzCpx}, and \texttt{Cpx} denote the sorts of zero complex numbers, nonzero complex numbers, and complex numbers, respectively.  The addition, multiplication, and conjugation operations of complex numbers of the form $a + b\omega + c\omega^2 + d\omega^3$ become simple by substituting $\omega$, $\omega^2$, $\omega^3$, $\omega^4 = -1$, $\omega^* = -\omega^3$, $(\omega^2)^* = -\omega^2$, and $(\omega^3)^* = -\omega$ as appropriate and performing the corresponding calculations. This process finally yields concise algebraic results. For example, the conjugate $(a + b\omega + c\omega^2 + d\omega^3)^*$ is $(a - d\omega - c\omega^2 - a\omega^3)$. Accordingly, we define the conjugation operation on complex numbers in Maude as follows.
+where \texttt{ZeroCpx}, \texttt{NzCpx}, and \texttt{Cpx} denote the sorts of zero complex numbers, nonzero complex numbers, and complex numbers, respectively.  The addition, multiplication, and conjugation operations of complex numbers of the form $a + b\omega + c\omega^2 + d\omega^3$ become simple by substituting $\omega$, $\omega^2$, $\omega^3$, $\omega^4 = -1$, $\omega^* = -\omega^3$, $(\omega^2)^* = -\omega^2$, and $(\omega^3)^* = -\omega$ as appropriate and performing the corresponding calculations. This process finally \DIFdelbegin \DIFdel{yeilds }\DIFdelend \DIFaddbegin \DIFadd{yields }\DIFaddend concise algebraic results. For example, the conjugate $(a + b\omega + c\omega^2 + d\omega^3)^*$ is $(a - d\omega - c\omega^2 - a\omega^3)$. Accordingly, we define the conjugation operation on complex numbers in Maude as follows.
 \begin{lstlisting}[mathescape=true]
 eq (I1, I2, I3, I4)^* = (I1, - I4, - I3, - I2) .
 \end{lstlisting}
@@ -288,7 +379,9 @@ For each of vectors, covectors, and matrices, we formalize constructors of scala
 \end{figure}
 
 
-Quantum states over $n$ qubits can be viewed as a binary decision tree over $n$ quantum variables. For example, a two-qubit state $c_{00}\ket{00} + c_{01}\ket{01} + c_{10}\ket{10} + c_{11}\ket{11}$ can be represented by a binary decision tree over the quantum variables $q_0$ and $q_1$ as shown in Figure~\ref{fig-qs}. This representation is inspired by~\cite{Robert@18,AutoQ@23} and the probability amplititude $c_{00}$ of the basis state $\ket{01}$ corresponds to the branch $q_0 \xrightarrow{\ket{0}} q_1\xrightarrow{\ket{1}} c_{01}$ in the binary decision tree.
+Quantum states over $n$ qubits can be viewed as a binary decision tree over $n$ quantum variables. For example, a two-qubit state $c_{00}\ket{00} + c_{01}\ket{01} + c_{10}\ket{10} + c_{11}\ket{11}$ can be represented by a binary decision tree over the quantum variables $q_0$ and $q_1$ as shown in Figure~\ref{fig-qs}. \DIFdelbegin \DIFdel{In this representation , }\DIFdelend \DIFaddbegin \DIFadd{This representation is inspired by~\mbox{%DIFAUXCMD
+\cite{Robert@18,AutoQ@23} }\hskip0pt%DIFAUXCMD
+and }\DIFaddend the probability amplititude $c_{00}$ of the basis state $\ket{01}$ corresponds to the branch $q_0 \xrightarrow{\ket{0}} q_1\xrightarrow{\ket{1}} c_{01}$ in the binary decision tree.
 Although a two-qubit state can be written as a linear combination of basis states, this representation is not efficient for computation. Therefore, we adopt a binary decision tree-based representation, expressing the state as $\ket{0} \otimes (c_{00} \cdot \ket{0} + c_{01} \cdot \ket{1}) + \ket{1} \otimes (c_{10} \cdot \ket{0} + c_{11} \cdot \ket{1})$. This hierarchical structure simulates a binary decision tree, uniquely represents quantum states, and enables more efficient manipulation. 
 For example, if we measure the first qubit $q_{0}$, we only need to consider the term $\ket{0} \otimes (c_{00} \cdot \ket{0} + c_{01} \cdot \ket{1})$ and simply discard the remainder in the case of a zero outcome; and similarly for the case of a one outcome. Therefore, we use this binary decision tree-based representation for quantum states in our algebraic specification. Note that this representation is also used for the bra representations of quantum states.
 
@@ -363,7 +456,7 @@ L22 & $\ket{0}^\dagger = \bra{0},\ \bra{0}^\dagger = \ket{0},\ \ket{1}^\dagger =
 \end{table}
 \end{small}
 
-For example, we would like to reduce the term ${\rm CX} \times (({\rm H} \otimes {\rm I}) \times \ket{0} \otimes \ket{0})$ to check whether its result is $\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{1}$. Note that the factor $1/\sqrt{2}$ in the Hadamard gate is handled by the global value $k$ as explained in Section~\ref{cpx_sect}. The term says that the H gate acts on the first qubit, followed by the CX gate, where the control and target bits are the first and second qubits, respectively. The simplification of the term goes as follows:
+For example, we would like to reduce the term ${\rm CX} \times (({\rm H} \otimes {\rm I}) \times \ket{0} \otimes \ket{0})$ to check whether its result is $\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{1}$. Note that the factor $1/\sqrt{2}$ in the \DIFdelbegin \DIFdel{Hardamard }\DIFdelend \DIFaddbegin \DIFadd{Hadamard }\DIFaddend gate is handled by the global value $k$ as explained in Section~\ref{cpx_sect}. The term says that the H gate acts on the first qubit, followed by the CX gate, where the control and target bits are the first and second qubits, respectively. The simplification of the term goes as follows:
 
 \begin{small}
 \noindent
@@ -394,7 +487,7 @@ $= \ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{1}$
 \end{small}
 \\
 \noindent
-where multiple rewrite steps are subsumed to avoid verbosity. Using these laws, the application of quantum operations to quantum states can be simplified into new quantum states. The entire process is carried out automatically in Maude with \texttt{|AS4QC>}, and the resulting state is the same as expected. The key idea is to reduce the matrix multiplication in the form of $\braket{i}{j}$ with $i, j \in \{0,1\}$ into a scalar and simplify the matrix representation by absorbing ones and eliminating zeros as soon as possible (see the law with label L3). 
+where multiple rewrite steps are subsumed to avoid verbosity. Using these laws, the application of quantum operations to quantum states can be simplified into new quantum states. The entire process is carried out automatically in Maude with \texttt{\DIFaddbegin \DIFadd{|}\DIFaddend AS4QC\DIFaddbegin \DIFadd{>}\DIFaddend }, and the resulting state is the same as expected. The key idea is to reduce the matrix multiplication in the form of $\braket{i}{j}$ with $i, j \in \{0,1\}$ into a scalar and simplify the matrix representation by absorbing ones and eliminating zeros as soon as possible (see the law with label L3). 
 For example, given the term $\ketbra{1}{1}\otimes {\rm X} \times \ket{0} \otimes \ket{0}$, we first check that $\ketbra{1} \times \ket{0} = 0$ and then it is unnecessary to consider ${\rm X} \times \ket{0}$ and return the zero vector immediately. This rewrite strategy significantly improves performance when matrices and vectors corresponding to multiple qubits are used instead of X and $\ket{0}$ as in this simple example. Moreover, the representation of quantum states described in Section~\ref{cpx_sect} is specifically designed to work with this strategy, thereby avoiding many unnecessary computations.
 In this way, automated reasoning about quantum computation using Dirac's bra-ket notation can be achieved through rewriting in Maude.
 %, rather than by explicitly performing matrix-vector calculations.
@@ -616,7 +709,11 @@ For the Grover’s Search case study, measurements are not required because we c
 \label{sect-rw}
 \label{sect-cls}
 
-Symbolic approach to reasoning about quantum computation has been used for theorem proving of quantum circuits in Coq~\cite{Yuan@21} and for reachability analysis, model checking, and equivalence checking of quantum circuits in Maude\cite{Canh@QRAT24,Do@24,Canh2023PeerJ,Canh24WRLA}. However, these approaches can handle simple case studies and a limited number of qubits, mainly due to difficulties in representing complex numbers symbolically and quantum states effectively. Graph-based (or decision diagram-based) approaches~\cite{QuIDD@04,Robert@18} significantly outperform array-based approaches~\cite{wecker2014,QX@17,ProjectQ@18} for quantum simulation by compactly representing quantum states, exploiting structural redundancies, and providing efficient algorithms for quantum operations. The use of the ring $\mathbb{D}[\omega]$ in decision diagrams to enable symbolic and exact quantum computation was preliminarily investigated in~\cite{Zulehner@19} and has since been adopted for the formal verification of quantum circuits and quantum programs in~\cite{AutoQ@23,AutoQ@25}. To the best of our knowledge, there is no existing algebraic specification that uses the ring $\mathbb{D}[\omega]$ for symbolic reasoning about quantum computation. Meanwhile, algebraic approaches are expressive and powerful for symbolic reasoning. Therefore, \texttt{|AS4QC>} provides a promising algebraic framework for symbolic reasoning about quantum computation in Maude, upon which verification techniques for quantum systems in Maude can be developed in the future.
+\DIFdelbegin \DIFdel{A symbolic }\DIFdelend \DIFaddbegin \DIFadd{Symbolic }\DIFaddend approach to reasoning about quantum computation has been used for theorem proving of quantum circuits in Coq~\cite{Yuan@21} and for reachability analysis, model checking, and equivalence checking of quantum circuits in Maude\DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
+\cite{Canh@QRAT24,Canh2023SEKE,Canh2023PeerJ,Canh24WRLA}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Canh@QRAT24,Do@24,Canh2023PeerJ,Canh24WRLA}}\hskip0pt%DIFAUXCMD
+}\DIFaddend . However, these approaches can handle simple case studies and a limited number of qubits, mainly due to difficulties in representing complex numbers symbolically and quantum states effectively. Graph-based (or decision \DIFdelbegin \DIFdel{diagram–based}\DIFdelend \DIFaddbegin \DIFadd{diagram-based}\DIFaddend ) approaches~\cite{QuIDD@04,Robert@18} significantly outperform array-based approaches~\cite{wecker2014,QX@17,ProjectQ@18} for quantum simulation by compactly representing quantum states, exploiting structural redundancies, and providing efficient algorithms for quantum operations. The use of the ring $\mathbb{D}[\omega]$ in decision diagrams to enable symbolic and exact quantum computation was preliminarily investigated in~\cite{Zulehner@19} and has since been adopted for the formal verification of quantum circuits and quantum programs in~\cite{AutoQ@23,AutoQ@25}. To the best of our knowledge, there is no existing algebraic specification that uses the ring $\mathbb{D}[\omega]$ for symbolic reasoning about quantum computation. Meanwhile, algebraic approaches are expressive and powerful for symbolic reasoning. Therefore, \texttt{|AS4QC>} provides a promising algebraic framework for symbolic reasoning about quantum computation in Maude, upon which verification techniques for quantum systems in Maude can be developed in the future.
 
 We have presented \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude. We have employed the ring $\mathbb{D}[\omega]$ to represent complex numbers in quantum computation without approximation, used Dirac notation to model quantum states and quantum operations, and leveraged a set of laws from quantum mechanics and basis matrix operations to automate reasoning about quantum computation. As case studies, we have used \texttt{|AS4QC>} to confirm the correctness of several non-trivial quantum programs, demonstrating the effectiveness and practicality of our approach. Although a complex number can be algebraically represented by a quadruple $(a, b, c, d)$ and a normalization factor $k$, many different choices of $(a, b, c, d)$ and $k$ may represent the same complex number. To use model checking techniques effectively, it is therefore necessary to identify a unique representation for this algebraic form. Developing such a unique representation, as suggested in~\cite{Zulehner@19}, would be one part of our future work, in addition to conducting more complex case studies, such as Shor’s algorithm.
 
