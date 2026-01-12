@@ -1,7 +1,7 @@
 % This is samplepaper.tex, a sample chapter demonstrating the
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL rev/paper-r1.tex   Sun Jan 11 11:56:54 2026
-%DIF ADD paper.tex          Mon Jan 12 17:45:18 2026
+%DIF ADD paper.tex          Mon Jan 12 18:00:48 2026
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.21 of 2022/01/12
 %
@@ -232,7 +232,7 @@ The state space of a quantum system is a Hilbert space $\mathcal{H}$, which is a
 
 A qubit is a quantum system whose state space is the two-dimensional Hilbert space $\mathcal{H}_2 = \mathbb{C}^2$. The state of a qubit can be written as $\alpha \ket{0} + \beta \ket{1}$ with $|\alpha|^2 + |\beta|^2 = 1$, where $\alpha, \beta \in \mathbb{C}$, $\ket{0} \triangleq [1\ 0]^T$, and $\ket{1} \triangleq [0\ 1]^T$ with $^T$ denoting the transpose operator. The coefficients $\alpha$ and $\beta$ are called the amplitudes of this quantum state. The set $\{\ket{0}, \ket{1}\}$ forms an orthonormal basis of $\mathcal{H}_2$ and is called the computational basis. 
 For multiple qubits, we use tensor products of Hilbert spaces. Let ${\mathcal{H}}_A$ and ${\mathcal{H}}_B$ be the Hilbert spaces of systems $A$ and $B$, respectively. 
-The tensor product of $\mathcal{H}_A$ and $\mathcal{H}_B$ is the Hilbert space $\mathcal{H}_A \otimes \mathcal{H}_B$ of their composite system $AB$. It consists of linear combinations of product states $\ket{\psi} \otimes \ket{\phi}$ (often written $\ket{\psi \phi}$ or $\ket{\psi} \ket{\phi}$) with $\ket{\psi} \in \mathcal{H}_A$ and $\ket{\phi} \in \mathcal{H}_B$. Any state in $\mathcal{H}_{A} \otimes \mathcal{H}_{B}$ that cannot be written as a product state is called an entangled state. For example, the Bell (or EPR) state $\ket{\Phi^+} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$ is maximally entangled.
+The tensor product of $\mathcal{H}_A$ and $\mathcal{H}_B$ is the Hilbert space $\mathcal{H}_A \otimes \mathcal{H}_B$ \DIFaddbegin \DIFadd{(or $\mathcal{H}_{AB}$) }\DIFaddend of their composite system $AB$. It consists of linear combinations of product states $\ket{\psi} \otimes \ket{\phi}$ (often written $\ket{\psi \phi}$ or $\ket{\psi} \ket{\phi}$) with $\ket{\psi} \in \mathcal{H}_A$ and $\ket{\phi} \in \mathcal{H}_B$. Any state in $\mathcal{H}_{A} \otimes \mathcal{H}_{B}$ that cannot be written as a product state is called an entangled state. For example, the Bell (or EPR) state $\ket{\Phi^+} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$ is maximally entangled.
 
 In quantum computing, we mainly perform two types of operations: unitary transformation (also known as quantum gates) and quantum measurement. A unitary transformation on a quantum system in the Hilbert space $\mathcal{H}$ is a linear operator $U : \mathcal{H} \rightarrow \mathcal{H}$ satisfying $UU^\dagger = U^{\dagger} U = I_{\mathcal{H}}$, where $U^{\dagger}$ is the conjugate transpose of $U$ and $I_{\mathcal {H}}$ is the identity operator on $\mathcal{H}$. After unitary transformation, a state $\ket{\psi}$ is changed to $U\ket{\psi}$ deterministically. We present the definition of some standard unitary transformations as follows.
 
