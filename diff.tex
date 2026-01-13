@@ -1,7 +1,7 @@
 % This is samplepaper.tex, a sample chapter demonstrating the
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL rev/paper-r2.tex   Tue Jan 13 14:32:52 2026
-%DIF ADD paper.tex          Tue Jan 13 15:20:25 2026
+%DIF ADD paper.tex          Tue Jan 13 16:44:24 2026
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.21 of 2022/01/12
 %
@@ -222,7 +222,7 @@ Section~\ref{sect-rw} mentions previous work and finally concludes the paper wit
 %Section~\ref{sect-rw} mentions some previous work.
 %Section~\ref{sect-cls} finally concludes the paper with some future directions.
 
-\section{Basic Notations from Quantum Computation}
+\section{\DIFdelbegin \DIFdel{Basic Notations from Quantum Computation}\DIFdelend \DIFaddbegin \DIFadd{Preliminaries}\DIFaddend }
 \label{sect-prel}
 This section describes basic notations from quantum computation (refer to~\cite{nielsen2010} for more details) and assumes that the reader has some basic knowledge of linear algebra.
 
@@ -387,7 +387,7 @@ Quantum operations are built from scalars and basic matrices using their constru
 {\rm P0} &= \ketbra{0}, & {\rm P1} & = \ketbra{1},
 \end{align*}
 \noindent
-where the factor $1/\sqrt{2}$ is omitted in the Hadamard gate H, as explained in Section~\ref{cpx_sect} and $\rm I$ is the symbol denoting the identity matrix on one qubit. We also present the projection operators P0 and P1 corresponding the the measure operators $M_0$ and $M_1$, respectively, as shown in Section~\ref{sect-prel}.
+where the factor $1/\sqrt{2}$ is omitted in the Hadamard gate H, as explained in Section~\ref{cpx_sect} and \DIFaddbegin \DIFadd{the symbol }\DIFaddend $\rm I$ \DIFdelbegin \DIFdel{is the symbol denoting the identity matrix on one qubit}\DIFdelend \DIFaddbegin \DIFadd{denotes the identity operator on the Hilbert space $\mathcal{H}_2$}\DIFaddend . We also present the projection operators P0 and P1 corresponding the the measure operators $M_0$ and $M_1$, respectively, as shown in Section~\ref{sect-prel}.
 The algebraic representation of complex numbers in the ring $\mathbb{D}[\omega]$ again simplifies the representation of these quantum operations, especially in the cases of H and T gates. Note that X, Y, Z, H, and T gates and P0 and P1 projectors act on one qubit, while CX gate acts on two qubits. 
 Let $\bar{q} = q_0, \dots, q_{n-1}$ be a quantum register, that is, a sequence of distinct quantum variables, used to refer to quantum states $\ket{\psi}$ over $n$ qubits. Let $\bar{r}_i$ be a subsequence of $\bar{q}$.
 To apply a quantum gate $U_i$ to a quantum state $\ket{\psi}$ with respect to the quantum register $\bar{r}_i$, we first construct the cylindrical extension of $U_i$ in the form $\overline{U}_i = U_i \otimes I_i$ so that the dimension of $\overline{U}_i$ matches that of $\ket{\psi}$. Here, $I_i$ is the identity operator on the Hilbert space $\mathcal{H}_{\bar{q} \backslash \bar{r}_i}$. For example, when applying the Hadamard gate H to the qubit $q_0$ of a two-qubit state shown in Figure~\ref{fig-qs}, the cylindrical extension of H is ${\rm H} \otimes {\rm I}$. We use the representation of ${\rm H} \otimes {\rm I}$ in the form 
@@ -461,18 +461,21 @@ $= \ket{0} + \ket{1}$
 \end{small}
 
 \begin{small}
-\begin{lstlisting}[mathescape=true]
+\DIFmodbegin
+\begin{lstlisting}[mathescape=true,alsolanguage=DIFcode]
 $({\rm H} \otimes {\rm I}) \times (\ket{0} \otimes \ket{0})$
-$= ({\rm H} \times \ket{0}) \otimes (I \times \ket{0})$
+%DIF < $= ({\rm H} \times \ket{0}) \otimes (I \times \ket{0})$
+%DIF > $= ({\rm H} \times \ket{0}) \otimes ({\rm I} \times \ket{0})$
 $= (\ket{0} + \ket{1}) \otimes \ket{0}$
 $= \ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0}$
 \end{lstlisting}
+\DIFmodend
 \end{small}
 
 \begin{small}
 \noindent
 ${\rm CX} \times (({\rm H} \otimes {\rm I}) \times (\ket{0} \otimes \ket{0}))$\\
-$= (\ketbra{0}\otimes I + \ketbra{1}\otimes {\rm X}) \times (\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0})$\\
+\DIFdelbegin \DIFdel{$= (\ketbra{0}\otimes I + \ketbra{1}\otimes {\rm X}) \times (\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0})$}\DIFdelend \DIFaddbegin \DIFadd{$= (\ketbra{0}\otimes {\rm I} + \ketbra{1}\otimes {\rm X}) \times (\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0})$}\DIFaddend \\
 $= (\ketbra{0}\otimes {\rm I} \times \ket{0} \otimes \ket{0}) + (\ketbra{0}\otimes {\rm I} \times \ket{1} \otimes \ket{0}) + (\ketbra{1}\otimes {\rm X} \times \ket{0} \otimes \ket{0}) + (\ketbra{1}\otimes {\rm X} \times \ket{1} \otimes \ket{0})$\\
 $= \ket{0} \otimes ({\rm I} \times \ket{0}) + \ket{1} \otimes ({\rm X} \times \ket{0})$\\
 $= \ket{0} \otimes \ket{0} + \ket{1} \otimes ((\ketbra{1}{0} + \ketbra{0}{1}) \times \ket{0})$\\
@@ -649,7 +652,7 @@ Using the algebraic specification \texttt{|AS4QC>}, we can represent complex num
 
 \section{Experiments} 
 \label{sect-exp}
-This section presents the experimental results using \texttt{|AS4QC>} to verify the correctness of several case studies. We used a Mac Pro computer equipped with a 2.5 GHz processor, 28 cores, and 1 TB of RAM to conduct the experiments. \texttt{|AS4QC>} is available at~\url{https://github.com/canhminhdo/as4qc}.
+This section presents the experimental results using \texttt{|AS4QC>} to verify the correctness of several case studies. \DIFdelbegin \DIFdel{We used }\DIFdelend \DIFaddbegin \DIFadd{The experiments were conducted using Maude 3.5 on }\DIFaddend a Mac Pro computer equipped with a 2.5 GHz processor, 28 cores, and 1 TB of RAM\DIFdelbegin \DIFdel{to conduct the experiments}\DIFdelend . \texttt{|AS4QC>} is available at~\url{https://github.com/canhminhdo/as4qc}.
 
 In the sequel, we present several case studies and their desired properties that we want to verify to demonstrate the effectiveness of our algebraic specification \texttt{|AS4QC>} for modeling, reasoning about, and verifying quantum programs.
 \begin{itemize}
@@ -663,8 +666,10 @@ In the sequel, we present several case studies and their desired properties that
 	\item Grover’s search algorithm~\cite{Grover@96} for searching an unstructured database with a quadratic speedup by iteratively applying the Grover operator. We verify whether, after approximately $\pi\sqrt{2^n}/4$ iterations of the Grover operator, the correct solution is obtained with high probability, where $n$ and $2^n$ denote the number of qubits and the database size, respectively.
 \end{itemize}
 
-\setlength{\tabcolsep}{0.8em}
-%\renewcommand{\arraystretch}{1.2}
+\DIFdelbegin %DIFDELCMD < \setlength{\tabcolsep}{0.8em}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \setlength{\tabcolsep}{0.76em}
+\DIFaddend %\renewcommand{\arraystretch}{1.2}
 \begin{table*}[t!]
 \setlength{\abovecaptionskip}{10pt}
 \caption{Experimental results with \texttt{|AS4QC>}}
@@ -674,30 +679,30 @@ In the sequel, we present several case studies and their desired properties that
 \toprule
 \textbf{Program} & \textbf{Qubits} & \textbf{Unitary} & \textbf{Measurement} & \textbf{Time} \\
 \midrule
-Entanglement & 100 & 100 & 0 & 132ms \\
+Entanglement & 100 & 100 & 0 & \DIFdelbeginFL \DIFdelFL{132ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{186ms }\DIFaddendFL \\
 \midrule
-Quantum Teleportation & 3 & 8 & 2 & $\approx 0$ \\
+Quantum Teleportation & 3 & 8 & 2 & \DIFdelbeginFL \DIFdelFL{$\approx 0$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1ms }\DIFaddendFL \\
 \midrule
 Entanglement Swapping & 4 & 8 & 2 & 1ms \\ 
 \midrule
-Quantum Secret Sharing & 4 & 9 & 3 & 1ms \\ 
+Quantum Secret Sharing & 4 & 9 & 3 & \DIFdelbeginFL \DIFdelFL{1ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{2ms }\DIFaddendFL \\ 
 \midrule
-Quantum Relay Scheme & 5 & 12 & 4 & 2ms \\ 
+Quantum Relay Scheme & 5 & 12 & 4 & \DIFdelbeginFL \DIFdelFL{2ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{3ms }\DIFaddendFL \\ 
 \midrule
 Bidirectional Teleportation & 6 & 12 & 4 & 4ms \\ 
 \midrule
-Quantum Network Coding & 14 & 37 & 10 & 819ms \\ 
+Quantum Network Coding & 14 & 37 & 10 & \DIFdelbeginFL \DIFdelFL{819ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.4s }\DIFaddendFL \\ %DIF >  1,435ms
 \midrule
-\multirow{3}{*}{Grover's Search} & 5 & 133 & 0 & 29ms \\
- & 10 & 1,430 & 0 & 4s \\
-  & 15 & 11,973 & 0 & 13m \\
+\multirow{3}{*}{Grover's Search} & 5 & 133 & 0 & \DIFdelbeginFL \DIFdelFL{29ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{38ms }\DIFaddendFL \\
+ & 10 & 1,430 & 0 & \DIFdelbeginFL \DIFdelFL{4s }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{7.3s }\DIFaddendFL \\ %DIF > 7.326ms
+  & 15 & 11,973 & 0 & \DIFdelbeginFL \DIFdelFL{13m }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{23.5m }\DIFaddendFL \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 We successfully verified the correctness of all case studies against their desired properties using \texttt{|AS4QC>}. The experimental results are summarized in Table~\ref{tblExp}. The columns \textbf{Qubits}, \textbf{Unitary}, \textbf{Measurement} denote the numbers of qubits, unitary operations, and measurements, respectively, while the column \textbf{Time} reports the time taken by Maude to verify each program against its specified property.
-For the Grover’s Search case study, measurements are not required because we can directly query the amplitude of the correct solution in the final quantum state supported by \texttt{|AS4QC>}, from which the probability of reaching the correct solution can be computed. Consequently, the number of measurements in Grover’s search is zero. For all case studies except Grover’s Search with 15 qubits, we could complete the verification tasks quickly. Specifically, we could construct an entangled state with 100 qubits in just 132 milliseconds, comparable with graph-based quantum simulators such as QuIDDPro~\cite{QuIDD@04} and MQT Core DD~\cite{Robert@18}, while array-based quantum simulators such as LIQ$U$i$\ket{}$~\cite{wecker2014}, QX~\cite{QX@17}, and ProjectQ~\cite{ProjectQ@18} could not do so as reported in~\cite{Robert@18}.
- In the case of Grover’s Search with 15 qubits, the verification involves a \DIFdelbegin \DIFdel{non-trivial }\DIFdelend \DIFaddbegin \DIFadd{nontrivial }\DIFaddend workload with 11,973 applications of quantum operations. As a result, Maude takes approximately 13 minutes to complete the verification. Notably, \texttt{|AS4QC>} is capable of handling not only concrete values, as presented in Entanglement, Entanglement Swapping, Quantum Network Coding, and Grover’s Search, but also symbolic values, as demonstrated in the other case studies. These experimental results demonstrate the usefulness and practicality of \texttt{|AS4QC>} for modeling, reasoning about, and verifying quantum programs using our algebraic approach. 
+For the Grover’s Search case study, measurements are not required because we can directly query the amplitude of the correct solution in the final quantum state supported by \texttt{|AS4QC>}, from which the probability of reaching the correct solution can be computed. Consequently, the number of measurements in Grover’s search is zero. For all case studies except Grover’s Search with 15 qubits, we could complete the verification tasks quickly. Specifically, we could construct an entangled state with 100 qubits in just \DIFdelbegin \DIFdel{132 }\DIFdelend \DIFaddbegin \DIFadd{186 }\DIFaddend milliseconds, comparable with graph-based quantum simulators such as QuIDDPro~\cite{QuIDD@04} and MQT Core DD~\cite{Robert@18}, while array-based quantum simulators such as LIQ$U$i$\ket{}$~\cite{wecker2014}, QX~\cite{QX@17}, and ProjectQ~\cite{ProjectQ@18} could not do so as reported in~\cite{Robert@18}.
+ In the case of Grover’s Search with 15 qubits, the verification involves a \DIFdelbegin \DIFdel{non-trivial }\DIFdelend \DIFaddbegin \DIFadd{nontrivial }\DIFaddend workload with 11,973 applications of quantum operations. As a result, Maude takes approximately \DIFdelbegin \DIFdel{13 }\DIFdelend \DIFaddbegin \DIFadd{23.5 }\DIFaddend minutes to complete the verification. Notably, \texttt{|AS4QC>} is capable of handling not only concrete \DIFaddbegin \DIFadd{and exact }\DIFaddend values, as presented in Entanglement, Entanglement Swapping, Quantum Network Coding, and Grover’s Search, but also symbolic values, as demonstrated in the other case studies. These experimental results demonstrate the \DIFdelbegin \DIFdel{usefulness }\DIFdelend \DIFaddbegin \DIFadd{effectiveness }\DIFaddend and practicality of \texttt{|AS4QC>} for modeling, \DIFaddbegin \DIFadd{symbolic and exact }\DIFaddend reasoning about, and verifying quantum programs\DIFdelbegin \DIFdel{using our algebraic approach}\DIFdelend .
 
 \section{Related Work and Conclusion}
 \label{sect-rw}
