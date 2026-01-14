@@ -1,7 +1,7 @@
 % This is samplepaper.tex, a sample chapter demonstrating the
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL rev/paper-r2.tex   Tue Jan 13 14:32:52 2026
-%DIF ADD paper.tex          Tue Jan 13 16:44:24 2026
+%DIF DEL rev/paper-r3.tex   Tue Jan 13 16:45:48 2026
+%DIF ADD paper.tex          Wed Jan 14 10:04:01 2026
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.21 of 2022/01/12
 %
@@ -178,7 +178,7 @@ Kazuhiro Ogata}
 \maketitle              % typeset the header of the contribution
 %
 \begin{abstract}
-With the rapid advancement of quantum computing, formal verification of quantum systems has become an increasingly important research topic. At the same time, the algebraic specification community, particularly the Maude community, has started to show interest in quantum computing. However, a dedicated algebraic specification framework for quantum computation is still lacking. This paper introduces \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude, which provides a formal framework for modeling, \DIFaddbegin \DIFadd{symbolic and exact }\DIFaddend reasoning about, and verifying quantum systems. We employ the ring $\mathbb{D}[\omega]$ to exactly represent complex numbers in quantum computation without approximation, use Dirac's bra-ket notation to model quantum states and quantum operations, and leverage a set of laws from quantum mechanics and basis matrix operations expressed in Dirac notation to automate reasoning about quantum computation. As case studies, we use \texttt{|AS4QC>} to verify the correctness of several \DIFdelbegin \DIFdel{non-trivial }\DIFdelend \DIFaddbegin \DIFadd{nontrivial }\DIFaddend quantum programs, demonstrating the effectiveness and practicality of our approach.
+With the rapid advancement of quantum computing, formal verification of quantum systems has become an increasingly important research topic. At the same time, the algebraic specification community, particularly the Maude community, has started to show interest in quantum computing. However, a dedicated algebraic specification framework for quantum computation is still lacking. This paper introduces \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude, which provides a formal framework for modeling, symbolic and exact reasoning about, and verifying quantum systems. We employ the ring $\mathbb{D}[\omega]$ to exactly represent complex numbers in quantum computation without approximation, use Dirac's bra-ket notation to model quantum states and quantum operations, and leverage a set of laws from quantum mechanics and basis matrix operations expressed in Dirac notation to automate reasoning about quantum computation. As case studies, we use \texttt{|AS4QC>} to verify the correctness of several nontrivial quantum programs, demonstrating the effectiveness and practicality of our approach.
 
 \keywords{algebraic specification \and quantum computation \and verification}
 \end{abstract}
@@ -190,13 +190,13 @@ With the rapid advancement of quantum computing, formal verification of quantum 
 Quantum computing has attracted significant attention worldwide, and with substantial investment from both governments and major companies, the development of large-scale quantum computers is increasingly seen as a matter of time and sustained effort. Quantum computing differs fundamentally from classical computing by exploiting principles of quantum mechanics, such as superposition, entanglement, and interference. These properties enable quantum algorithms, such as Shor’s algorithm for integer factorization and discrete logarithms~\cite{Shor@94}, and Grover’s algorithm for unstructured database search~\cite{Grover@96}, to achieve substantial speedups over their best-known classical counterparts.
 However, due to the counterintuitive and probabilistic nature of quantum computation, the likelihood of programming errors in quantum programs is much higher than in classical ones. Moreover, traditional testing techniques are much less effective in the quantum setting because of nondeterminism and probabilistic outcomes inherent in quantum measurement. Consequently, formal verification is expected to play a crucial role in ensuring the reliability of quantum systems before they can be trusted in safety-critical and security-sensitive applications.
 
-The algebraic specification community, particularly the Maude community, has started to show interest in quantum computing. However, a dedicated algebraic specification framework for quantum computation is still lacking, which makes the development of formal verification techniques for quantum systems in Maude challenging. In this paper, we present \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude, which provides a formal framework for modeling, \DIFaddbegin \DIFadd{symbolic and exact }\DIFaddend reasoning about, and verifying quantum systems. 
+The algebraic specification community, particularly the Maude community, has started to show interest in quantum computing. However, a dedicated algebraic specification framework for quantum computation is still lacking, which makes the development of formal verification techniques for quantum systems in Maude challenging. In this paper, we present \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude, which provides a formal framework for modeling, symbolic and exact reasoning about, and verifying quantum systems. 
 To develop \texttt{|AS4QC>}, we need to support algebraic representations of complex numbers, quantum states, and quantum operations, as well as automated reasoning about quantum computation.
 Kliuchnikov et al. conjectured in~\cite{Vadym@13}, and Giles and Selinger later proved in~\cite{Giles@13}, that a unitary matrix can be exactly realized by a quantum circuit over the universal Clifford + T gate set if and only if all its matrix entries belong to the ring $\mathbb{D}[\omega]$. Therefore, it is promising to study the ring $\mathbb{D}[\omega]$ and its use for the exact algebraic representation of complex numbers arising in quantum computation. Accordingly, we employ $\mathbb{D}[\omega]$ to algebraically represent complex numbers in quantum computation without approximation. 
 For the algebraic representation of quantum states and quantum operations, we adopt Dirac’s bra-ket notation~\cite{Dirac@93} instead of explicitly using complex vectors and matrices as in~\cite{QWIRE@17,QX@17,wecker2014,ProjectQ@18}. Dirac notation is widely used in quantum mechanics because of its succinctness and convenience, and it allows us to obtain compact representations that are well-suited to algebraic manipulation. For automated reasoning, we leverage a set of laws from quantum mechanics and basis matrix operations expressed in Dirac notation to perform quantum computation.
 
 Maude~\cite{Clavel2007LNCS} is a high-level specification and programming language based on rewriting logic~\cite{Meseguer@12}, focusing on simplicity, expressiveness, and performance, and providing a wide range of formal analysis facilities. Therefore, we use it to develop the algebraic specification \texttt{|AS4QC>} for quantum computation. The algebraic specification allows us to use symbolic values for complex numbers, thereby enabling symbolic quantum computation, which is a major advantage of our approach.
-As case studies, we use \texttt{|AS4QC>} to verify the correctness of several \DIFdelbegin \DIFdel{non-trivial }\DIFdelend \DIFaddbegin \DIFadd{nontrivial }\DIFaddend quantum programs, including 
+As case studies, we use \texttt{|AS4QC>} to verify the correctness of several nontrivial quantum programs, including 
 Entanglement,
 Quantum Teleportation~\cite{be93}, 
 Entanglement Swapping~\cite{zu93}, 
@@ -222,7 +222,7 @@ Section~\ref{sect-rw} mentions previous work and finally concludes the paper wit
 %Section~\ref{sect-rw} mentions some previous work.
 %Section~\ref{sect-cls} finally concludes the paper with some future directions.
 
-\section{\DIFdelbegin \DIFdel{Basic Notations from Quantum Computation}\DIFdelend \DIFaddbegin \DIFadd{Preliminaries}\DIFaddend }
+\section{Preliminaries}
 \label{sect-prel}
 This section describes basic notations from quantum computation (refer to~\cite{nielsen2010} for more details) and assumes that the reader has some basic knowledge of linear algebra.
 
@@ -299,11 +299,9 @@ This section presents the algebraic specification \texttt{|AS4QC>} for quantum c
 
 \subsection{Complex number representation}
 \label{cpx_sect}
-\DIFdelbegin \DIFdel{Quantum computation involves complex numbers. To simulate quantum computationwithout numerical approximation}\DIFdelend \DIFaddbegin \DIFadd{This work focuses on symbolic and exact reasoning for quantum computation. Therefore}\DIFaddend , it is \DIFdelbegin \DIFdel{therefore necessary to }\DIFdelend \DIFaddbegin \DIFadd{necessary to exactly }\DIFaddend represent complex numbers \DIFdelbegin \DIFdel{algebraically}\DIFdelend \DIFaddbegin \DIFadd{arising in quantum computation without approximation}\DIFaddend . Kliuchnikov et al. conjectured in~\cite{Vadym@13}, and Giles and Selinger later proved in~\cite{Giles@13}, that a unitary matrix can be exactly realized by a quantum circuit over the universal Clifford + T gate set, possibly using one additional ancilla, if and only if its matrix entries belong to the ring $\mathbb{D}[\omega]$, consisting all complex numbers of the form
+This work focuses on symbolic and exact reasoning for quantum computation. Therefore, it is necessary to exactly represent complex numbers arising in quantum computation without approximation. Kliuchnikov et al. conjectured in~\cite{Vadym@13}, and Giles and Selinger later proved in~\cite{Giles@13}, that a unitary matrix can be exactly realized by a quantum circuit over the universal Clifford + T gate set, possibly using one additional ancilla, if and only if its matrix entries belong to the ring $\mathbb{D}[\omega]$, consisting all complex numbers of the form
 $\frac{1}{{\sqrt{2}}^k}(a + b\omega + c\omega^2 + d\omega^3)$, where $k \in \mathbb{N}, a,b,c,d \in \mathbb{Z}$, and $\omega = e^{i\pi/4} = {\rm cos}(\pi/4) + i\ {\rm sin}(\pi/4) = (1 + i) / \sqrt{2}$. Using the ring $\mathbb{D}[\omega]$, a complex number is algebraically represented by a quadruple $(a, b, c, d)$ of integers and a normalization factor $k$ of a natural number. Although $\mathbb{D}[\omega]$ does not include all complex numbers, it forms a dense subset of complex numbers such that any complex number can be approximated to arbitrary precision by an element of the ring $\mathbb{D}[\omega]$~\cite{Zulehner@19}. Moreover, the subset of complex numbers is sufficient to describe various standard quantum gates. Our algebraic specification currently supports X, Y, Z, H, S, T, Rx[$\pi/2$], Ry[$\pi/2$], Rz[$\pi/2$], CX, CY, CZ, SWAP, CCX, CCY, CCZ, MCX, MCY, MCZ, MCSWAP, which already includes the universal Clifford + T gate set.
-This algebraic representation of complex numbers is also sufficient to exactly represent all reachable states of OpenQASM \DIFdelbegin \DIFdel{~}\footnote{\DIFdel{OpenQASM (open quantum assembly language) is an imperative programming language for describing quantum circuits used by IBM.}} %DIFAUXCMD
-\addtocounter{footnote}{-1}%DIFAUXCMD
-\DIFdel{circuits}\DIFdelend \DIFaddbegin \DIFadd{circuits\,}\footnote{\DIFadd{OpenQASM (open quantum assembly language) is an imperative programming language for describing quantum circuits used by IBM.}} \DIFaddend when the initial state is a basis state because complex numbers in the ring $\mathbb{D}[\omega]$ are closed under addition and multiplication.
+This algebraic representation of complex numbers is also sufficient to exactly represent all reachable states of OpenQASM circuits\,\footnote{OpenQASM (open quantum assembly language) is an imperative programming language for describing quantum circuits used by IBM.} when the initial state is a basis state because complex numbers in the ring $\mathbb{D}[\omega]$ are closed under addition and multiplication.
 
 We employ the ring $\mathbb{D}[\omega]$ to algebraically represent complex numbers and also assume that all amplitudes of a quantum state share a common normalization factor $k$ as in~\cite{AutoQ@23,AutoQ@25}.  Rather than storing this factor for each amplitude, we store a single global value $k$ for the whole quantum state. The value of $k$ can be inferred from the fact that the sum of probabilities over all basis states is one. 
 Moreover, the initial quantum state is usually a basis state, $k$ is initialized to zero in most cases. For each application of an H, Rx[$\pi / 2$], Ry[$\pi / 2$], or Rz[$\pi / 2$] gate, the value of $k$ is incremented since these gates introduce a factor of $1/\sqrt{2}$. It is important to note that this factor is omitted in our representations for these quantum gates, which further simplifies their algebraic representations. After all operations have been applied, the final quantum state is normalized by multiplying it by $(1/\sqrt{2})^k$. Under this representation, each amplitude of a quantum state is represented as a quadruple $(a, b, c, d)$ of integers and a value $k$ is stored globally. 
@@ -387,7 +385,7 @@ Quantum operations are built from scalars and basic matrices using their constru
 {\rm P0} &= \ketbra{0}, & {\rm P1} & = \ketbra{1},
 \end{align*}
 \noindent
-where the factor $1/\sqrt{2}$ is omitted in the Hadamard gate H, as explained in Section~\ref{cpx_sect} and \DIFaddbegin \DIFadd{the symbol }\DIFaddend $\rm I$ \DIFdelbegin \DIFdel{is the symbol denoting the identity matrix on one qubit}\DIFdelend \DIFaddbegin \DIFadd{denotes the identity operator on the Hilbert space $\mathcal{H}_2$}\DIFaddend . We also present the projection operators P0 and P1 corresponding the the measure operators $M_0$ and $M_1$, respectively, as shown in Section~\ref{sect-prel}.
+where the factor $1/\sqrt{2}$ is omitted in the Hadamard gate H, as explained in Section~\ref{cpx_sect} and the symbol $\rm I$ denotes the identity operator on the Hilbert space $\mathcal{H}_2$. We also present the projection operators P0 and P1 corresponding the the measure operators $M_0$ and $M_1$, respectively, as shown in Section~\ref{sect-prel}.
 The algebraic representation of complex numbers in the ring $\mathbb{D}[\omega]$ again simplifies the representation of these quantum operations, especially in the cases of H and T gates. Note that X, Y, Z, H, and T gates and P0 and P1 projectors act on one qubit, while CX gate acts on two qubits. 
 Let $\bar{q} = q_0, \dots, q_{n-1}$ be a quantum register, that is, a sequence of distinct quantum variables, used to refer to quantum states $\ket{\psi}$ over $n$ qubits. Let $\bar{r}_i$ be a subsequence of $\bar{q}$.
 To apply a quantum gate $U_i$ to a quantum state $\ket{\psi}$ with respect to the quantum register $\bar{r}_i$, we first construct the cylindrical extension of $U_i$ in the form $\overline{U}_i = U_i \otimes I_i$ so that the dimension of $\overline{U}_i$ matches that of $\ket{\psi}$. Here, $I_i$ is the identity operator on the Hilbert space $\mathcal{H}_{\bar{q} \backslash \bar{r}_i}$. For example, when applying the Hadamard gate H to the qubit $q_0$ of a two-qubit state shown in Figure~\ref{fig-qs}, the cylindrical extension of H is ${\rm H} \otimes {\rm I}$. We use the representation of ${\rm H} \otimes {\rm I}$ in the form 
@@ -461,21 +459,18 @@ $= \ket{0} + \ket{1}$
 \end{small}
 
 \begin{small}
-\DIFmodbegin
-\begin{lstlisting}[mathescape=true,alsolanguage=DIFcode]
+\begin{lstlisting}[mathescape=true]
 $({\rm H} \otimes {\rm I}) \times (\ket{0} \otimes \ket{0})$
-%DIF < $= ({\rm H} \times \ket{0}) \otimes (I \times \ket{0})$
-%DIF > $= ({\rm H} \times \ket{0}) \otimes ({\rm I} \times \ket{0})$
+$= ({\rm H} \times \ket{0}) \otimes ({\rm I} \times \ket{0})$
 $= (\ket{0} + \ket{1}) \otimes \ket{0}$
 $= \ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0}$
 \end{lstlisting}
-\DIFmodend
 \end{small}
 
 \begin{small}
 \noindent
 ${\rm CX} \times (({\rm H} \otimes {\rm I}) \times (\ket{0} \otimes \ket{0}))$\\
-\DIFdelbegin \DIFdel{$= (\ketbra{0}\otimes I + \ketbra{1}\otimes {\rm X}) \times (\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0})$}\DIFdelend \DIFaddbegin \DIFadd{$= (\ketbra{0}\otimes {\rm I} + \ketbra{1}\otimes {\rm X}) \times (\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0})$}\DIFaddend \\
+$= (\ketbra{0}\otimes {\rm I} + \ketbra{1}\otimes {\rm X}) \times (\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{0})$\\
 $= (\ketbra{0}\otimes {\rm I} \times \ket{0} \otimes \ket{0}) + (\ketbra{0}\otimes {\rm I} \times \ket{1} \otimes \ket{0}) + (\ketbra{1}\otimes {\rm X} \times \ket{0} \otimes \ket{0}) + (\ketbra{1}\otimes {\rm X} \times \ket{1} \otimes \ket{0})$\\
 $= \ket{0} \otimes ({\rm I} \times \ket{0}) + \ket{1} \otimes ({\rm X} \times \ket{0})$\\
 $= \ket{0} \otimes \ket{0} + \ket{1} \otimes ((\ketbra{1}{0} + \ketbra{0}{1}) \times \ket{0})$\\
@@ -652,7 +647,7 @@ Using the algebraic specification \texttt{|AS4QC>}, we can represent complex num
 
 \section{Experiments} 
 \label{sect-exp}
-This section presents the experimental results using \texttt{|AS4QC>} to verify the correctness of several case studies. \DIFdelbegin \DIFdel{We used }\DIFdelend \DIFaddbegin \DIFadd{The experiments were conducted using Maude 3.5 on }\DIFaddend a Mac Pro computer equipped with a 2.5 GHz processor, 28 cores, and 1 TB of RAM\DIFdelbegin \DIFdel{to conduct the experiments}\DIFdelend . \texttt{|AS4QC>} is available at~\url{https://github.com/canhminhdo/as4qc}.
+This section presents the experimental results using \texttt{|AS4QC>} to verify the correctness of several case studies. The experiments were conducted using Maude 3.5 on a \DIFdelbegin \DIFdel{Mac Pro computer equipped with a 2.5 GHz processor, 28 cores, and 1 TB }\DIFdelend \DIFaddbegin \DIFadd{MacBook Pro machine equipped with an Apple M4 Max chip and 48 GB }\DIFaddend of RAM. \texttt{|AS4QC>} is available at~\url{https://github.com/canhminhdo/as4qc}.
 
 In the sequel, we present several case studies and their desired properties that we want to verify to demonstrate the effectiveness of our algebraic specification \texttt{|AS4QC>} for modeling, reasoning about, and verifying quantum programs.
 \begin{itemize}
@@ -666,10 +661,8 @@ In the sequel, we present several case studies and their desired properties that
 	\item Grover’s search algorithm~\cite{Grover@96} for searching an unstructured database with a quadratic speedup by iteratively applying the Grover operator. We verify whether, after approximately $\pi\sqrt{2^n}/4$ iterations of the Grover operator, the correct solution is obtained with high probability, where $n$ and $2^n$ denote the number of qubits and the database size, respectively.
 \end{itemize}
 
-\DIFdelbegin %DIFDELCMD < \setlength{\tabcolsep}{0.8em}
-%DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \setlength{\tabcolsep}{0.76em}
-\DIFaddend %\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{0.76em}
+%\renewcommand{\arraystretch}{1.2}
 \begin{table*}[t!]
 \setlength{\abovecaptionskip}{10pt}
 \caption{Experimental results with \texttt{|AS4QC>}}
@@ -679,38 +672,39 @@ In the sequel, we present several case studies and their desired properties that
 \toprule
 \textbf{Program} & \textbf{Qubits} & \textbf{Unitary} & \textbf{Measurement} & \textbf{Time} \\
 \midrule
-Entanglement & 100 & 100 & 0 & \DIFdelbeginFL \DIFdelFL{132ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{186ms }\DIFaddendFL \\
+Entanglement & 100 & 100 & 0 & \DIFdelbeginFL \DIFdelFL{186ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{53ms }\DIFaddendFL \\
 \midrule
-Quantum Teleportation & 3 & 8 & 2 & \DIFdelbeginFL \DIFdelFL{$\approx 0$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1ms }\DIFaddendFL \\
+Quantum Teleportation & 3 & 8 & 2 & \DIFdelbeginFL \DIFdelFL{1ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\approx 0$ }\DIFaddendFL \\
 \midrule
-Entanglement Swapping & 4 & 8 & 2 & 1ms \\ 
+Entanglement Swapping & 4 & 8 & 2 & \DIFdelbeginFL \DIFdelFL{1ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\approx 0$ }\DIFaddendFL \\ 
 \midrule
-Quantum Secret Sharing & 4 & 9 & 3 & \DIFdelbeginFL \DIFdelFL{1ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{2ms }\DIFaddendFL \\ 
+Quantum Secret Sharing & 4 & 9 & 3 & \DIFdelbeginFL \DIFdelFL{2ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\approx 0$ }\DIFaddendFL \\ 
 \midrule
-Quantum Relay Scheme & 5 & 12 & 4 & \DIFdelbeginFL \DIFdelFL{2ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{3ms }\DIFaddendFL \\ 
+Quantum Relay Scheme & 5 & 12 & 4 & \DIFdelbeginFL \DIFdelFL{3ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1ms }\DIFaddendFL \\ 
 \midrule
-Bidirectional Teleportation & 6 & 12 & 4 & 4ms \\ 
+Bidirectional Teleportation & 6 & 12 & 4 & \DIFdelbeginFL \DIFdelFL{4ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1ms }\DIFaddendFL \\ 
 \midrule
-Quantum Network Coding & 14 & 37 & 10 & \DIFdelbeginFL \DIFdelFL{819ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.4s }\DIFaddendFL \\ %DIF >  1,435ms
+Quantum Network Coding & 14 & 37 & 10 & \DIFdelbeginFL \DIFdelFL{1.4s }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{268ms }\DIFaddendFL \\ % 1,435ms
 \midrule
-\multirow{3}{*}{Grover's Search} & 5 & 133 & 0 & \DIFdelbeginFL \DIFdelFL{29ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{38ms }\DIFaddendFL \\
- & 10 & 1,430 & 0 & \DIFdelbeginFL \DIFdelFL{4s }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{7.3s }\DIFaddendFL \\ %DIF > 7.326ms
-  & 15 & 11,973 & 0 & \DIFdelbeginFL \DIFdelFL{13m }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{23.5m }\DIFaddendFL \\
+\multirow{3}{*}{Grover's Search} & 5 & 133 & 0 & \DIFdelbeginFL \DIFdelFL{38ms }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{10ms }\DIFaddendFL \\
+ & 10 & 1,430 & 0 & \DIFdelbeginFL \DIFdelFL{7.3}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.2}\DIFaddendFL s \\ %DIF < 7.326ms
+  %DIF > 1226ms
+  & 15 & 11,973 & 0 & \DIFdelbeginFL \DIFdelFL{23.5}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{3.9}\DIFaddendFL m \\ %DIF > 237573ms
 \bottomrule
 \end{tabular}
 \end{table*}
 
 We successfully verified the correctness of all case studies against their desired properties using \texttt{|AS4QC>}. The experimental results are summarized in Table~\ref{tblExp}. The columns \textbf{Qubits}, \textbf{Unitary}, \textbf{Measurement} denote the numbers of qubits, unitary operations, and measurements, respectively, while the column \textbf{Time} reports the time taken by Maude to verify each program against its specified property.
-For the Grover’s Search case study, measurements are not required because we can directly query the amplitude of the correct solution in the final quantum state supported by \texttt{|AS4QC>}, from which the probability of reaching the correct solution can be computed. Consequently, the number of measurements in Grover’s search is zero. For all case studies except Grover’s Search with 15 qubits, we could complete the verification tasks quickly. Specifically, we could construct an entangled state with 100 qubits in just \DIFdelbegin \DIFdel{132 }\DIFdelend \DIFaddbegin \DIFadd{186 }\DIFaddend milliseconds, comparable with graph-based quantum simulators such as QuIDDPro~\cite{QuIDD@04} and MQT Core DD~\cite{Robert@18}, while array-based quantum simulators such as LIQ$U$i$\ket{}$~\cite{wecker2014}, QX~\cite{QX@17}, and ProjectQ~\cite{ProjectQ@18} could not do so as reported in~\cite{Robert@18}.
- In the case of Grover’s Search with 15 qubits, the verification involves a \DIFdelbegin \DIFdel{non-trivial }\DIFdelend \DIFaddbegin \DIFadd{nontrivial }\DIFaddend workload with 11,973 applications of quantum operations. As a result, Maude takes approximately \DIFdelbegin \DIFdel{13 }\DIFdelend \DIFaddbegin \DIFadd{23.5 }\DIFaddend minutes to complete the verification. Notably, \texttt{|AS4QC>} is capable of handling not only concrete \DIFaddbegin \DIFadd{and exact }\DIFaddend values, as presented in Entanglement, Entanglement Swapping, Quantum Network Coding, and Grover’s Search, but also symbolic values, as demonstrated in the other case studies. These experimental results demonstrate the \DIFdelbegin \DIFdel{usefulness }\DIFdelend \DIFaddbegin \DIFadd{effectiveness }\DIFaddend and practicality of \texttt{|AS4QC>} for modeling, \DIFaddbegin \DIFadd{symbolic and exact }\DIFaddend reasoning about, and verifying quantum programs\DIFdelbegin \DIFdel{using our algebraic approach}\DIFdelend .
+For the Grover’s Search case study, measurements are not required because we can directly query the amplitude of the correct solution in the final quantum state supported by \texttt{|AS4QC>}, from which the probability of reaching the correct solution can be computed. Consequently, the number of measurements in Grover’s search is zero. For all case studies except Grover’s Search with 15 qubits, we could complete the verification tasks quickly. Specifically, we could construct an entangled state with 100 qubits in just \DIFdelbegin \DIFdel{186 }\DIFdelend \DIFaddbegin \DIFadd{53 }\DIFaddend milliseconds, comparable with graph-based quantum simulators such as QuIDDPro~\cite{QuIDD@04} and MQT Core DD~\cite{Robert@18}, while array-based quantum simulators such as LIQ$U$i$\ket{}$~\cite{wecker2014}, QX~\cite{QX@17}, and ProjectQ~\cite{ProjectQ@18} could not do so as reported in~\cite{Robert@18}.
+In the case of Grover’s Search with 15 qubits, the verification involves a nontrivial workload with 11,973 applications of quantum operations. As a result, Maude \DIFdelbegin \DIFdel{takes approximately 23.5 }\DIFdelend \DIFaddbegin \DIFadd{took approximately 3.9 }\DIFaddend minutes to complete the verification. Notably, \texttt{|AS4QC>} is capable of handling not only concrete and exact values, as presented in Entanglement, Entanglement Swapping, Quantum Network Coding, and Grover’s Search, but also symbolic values, as demonstrated in the other case studies. These experimental results demonstrate the effectiveness and practicality of \texttt{|AS4QC>} for modeling, symbolic and exact reasoning about, and verifying quantum programs.
 
 \section{Related Work and Conclusion}
 \label{sect-rw}
 \label{sect-cls}
 
-Symbolic approach to reasoning about quantum computation has been used for theorem proving of quantum circuits in Coq~\cite{Yuan@21} and for reachability analysis, model checking, and equivalence checking of quantum circuits in Maude\cite{Canh@QRAT24,Do@24,Canh2023PeerJ,Canh24WRLA}. However, these approaches can handle simple case studies and a limited number of qubits, mainly due to difficulties in representing complex numbers symbolically and quantum states effectively. Graph-based (or decision diagram-based) approaches~\cite{QuIDD@04,Robert@18} significantly outperform array-based approaches~\cite{wecker2014,QX@17,ProjectQ@18} for quantum simulation by compactly representing quantum states, exploiting structural redundancies, and providing efficient algorithms for quantum operations. The use of the ring $\mathbb{D}[\omega]$ in decision diagrams to enable symbolic and exact quantum computation was preliminarily investigated in~\cite{Zulehner@19} and has since been adopted for the formal verification of quantum circuits and quantum programs in~\cite{AutoQ@23,AutoQ@25}. To the best of our knowledge, there is no existing algebraic specification that uses the ring $\mathbb{D}[\omega]$ for symbolic reasoning about quantum computation. Meanwhile, algebraic approaches are expressive and powerful for symbolic reasoning. \DIFdelbegin \DIFdel{Therefore}\DIFdelend \DIFaddbegin \DIFadd{Thus}\DIFaddend , \texttt{|AS4QC>} provides a promising algebraic framework for symbolic \DIFaddbegin \DIFadd{and exact }\DIFaddend reasoning about quantum computation in Maude, upon which verification techniques for quantum systems in Maude can be developed in the future.
+Symbolic approach to reasoning about quantum computation has been used for theorem proving of quantum circuits in Coq~\cite{Yuan@21} and for reachability analysis, model checking, and equivalence checking of quantum circuits in Maude\cite{Canh@QRAT24,Do@24,Canh2023PeerJ,Canh24WRLA}. However, these approaches can handle simple case studies and a limited number of qubits, mainly due to difficulties in representing complex numbers symbolically and quantum states effectively. Graph-based (or decision diagram-based) approaches~\cite{QuIDD@04,Robert@18} significantly outperform array-based approaches~\cite{wecker2014,QX@17,ProjectQ@18} for quantum simulation by compactly representing quantum states, exploiting structural redundancies, and providing efficient algorithms for quantum operations. The use of the ring $\mathbb{D}[\omega]$ in decision diagrams to enable symbolic and exact quantum computation was preliminarily investigated in~\cite{Zulehner@19} and has since been adopted for the formal verification of quantum circuits and quantum programs in~\cite{AutoQ@23,AutoQ@25}. To the best of our knowledge, there is no existing algebraic specification that uses the ring $\mathbb{D}[\omega]$ for symbolic reasoning about quantum computation. Meanwhile, algebraic approaches are expressive and powerful for symbolic reasoning. Thus, \texttt{|AS4QC>} provides a promising algebraic framework for symbolic and exact reasoning about quantum computation in Maude, upon which verification techniques for quantum systems in Maude can be developed in the future.
 
-We have presented \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude. We have employed the ring $\mathbb{D}[\omega]$ to represent complex numbers in quantum computation without approximation, used Dirac notation to model quantum states and quantum operations, and leveraged a set of laws from quantum mechanics and basis matrix operations to automate reasoning about quantum computation. As case studies, we have used \texttt{|AS4QC>} to confirm the correctness of several \DIFdelbegin \DIFdel{non-trivial }\DIFdelend \DIFaddbegin \DIFadd{nontrivial }\DIFaddend quantum programs, demonstrating the effectiveness and practicality of our approach. Although a complex number can be algebraically represented by a quadruple $(a, b, c, d)$ and a normalization factor $k$, many different choices of $(a, b, c, d)$ and $k$ may represent the same complex number. To use model checking techniques effectively, it is therefore necessary to identify a unique representation for this algebraic form. Developing such a unique representation, as suggested in~\cite{Zulehner@19}, would be one part of our future work, in addition to conducting more complex case studies, such as Shor’s algorithm.
+We have presented \texttt{|AS4QC>}, an algebraic specification for quantum computation in Maude. We have employed the ring $\mathbb{D}[\omega]$ to represent complex numbers in quantum computation without approximation, used Dirac notation to model quantum states and quantum operations, and leveraged a set of laws from quantum mechanics and basis matrix operations to automate reasoning about quantum computation. As case studies, we have used \texttt{|AS4QC>} to confirm the correctness of several nontrivial quantum programs, demonstrating the effectiveness and practicality of our approach. Although a complex number can be algebraically represented by a quadruple $(a, b, c, d)$ and a normalization factor $k$, many different choices of $(a, b, c, d)$ and $k$ may represent the same complex number. To use model checking techniques effectively, it is therefore necessary to identify a unique representation for this algebraic form. Developing such a unique representation, as suggested in~\cite{Zulehner@19}, would be one part of our future work, in addition to conducting more complex case studies, such as Shor’s algorithm.
 
 %\begin{credits}
 %\subsubsection{\ackname} 
